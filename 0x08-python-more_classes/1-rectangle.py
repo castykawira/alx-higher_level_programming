@@ -16,6 +16,9 @@ class Rectangle:
         Args:
             width (int): The width of the rectangle (default 0).
             height (int): The height of the rectangle (default 0).
+        Raises:
+            TypeError: if size is not integer
+            ValueError: if size is less than zero
         """
         self.__width = width
         self.__height = height
