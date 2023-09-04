@@ -6,16 +6,16 @@ class Rectangle:
     """Represents a rectangle.
 
     Attributes:
-        width (int): The width of the rectangle.
-        height (int): The height of the rectangle.
+        width : The width of the rectangle.
+        height : The height of the rectangle.
     """
 
     def __init__(self, width=0, height=0):
         """Initialize a Rectangle instance.
 
         Args:
-            width (int): The width of the rectangle (default 0).
-            height (int): The height of the rectangle (default 0).
+            width : The width of the rectangle (default 0).
+            height : The height of the rectangle (default 0).
         Raises:
             TypeError: if size is not integer
             ValueError: if size is less than zero
@@ -33,7 +33,7 @@ class Rectangle:
         """Set the width of the rectangle.
 
         Args:
-            value (int): The new width value.
+            value : The new width value.
 
         Raises:
             TypeError: If value is not an integer.
@@ -55,7 +55,7 @@ class Rectangle:
         """Set the height of the rectangle.
 
         Args:
-            value (int): The new height value.
+            value : The new height value.
 
         Raises:
             TypeError: If value is not an integer.
