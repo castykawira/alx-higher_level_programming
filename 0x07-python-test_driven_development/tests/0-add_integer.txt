@@ -1,0 +1,131 @@
+Test cases for 0-add_integer function
+===================================
+
+The add_integer function returns the sum of two integers or floats provided as arguments
+
+Usage
+=====
+
+import function from the module:
+    >>> add_integer = __import__('0-add_integer').add_integer
+
+Adding two positive integers
+>>> add_integer(1, 2)
+3
+
+Adding a positive and a negative integer
+>>> add_integer(-5, 10)
+5
+
+Adding two negative integers
+>>> add_integer(-8, -7)
+-15
+
+Adding two integers where the second one is the same as the default value 98
+>>> add_integer(2)
+100
+
+Adding two positive floats
+>>> add_integer(10.5, 7.3)
+17
+
+Adding a float and a negative float
+>>> add_integer(3.8, -2.2)
+1
+
+Adding two negative floats
+>>> add_integer(-6.5, -3)
+-9
+
+Adding a positive float and a positive integer
+>>> add_integer(2.4, 6)
+8
+
+Adding a float and an integer where the integer is equal to the default value 98
+>>> add_integer(2.4)
+100
+
+Adding a positive float and a negative integer
+>>> add_integer(8.5, -3)
+5
+
+Trying to add a string and an integer
+>>> add_integer("book", 3)
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
+
+Trying to add an interger and a string
+>>> add_integer(4, "book")
+Traceback (most recent call last):
+    ...
+TypeError: b must be an integer
+
+Trying to add two strings
+>>> add_integer("book", "world")
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
+
+Not adding any argument to the function
+>>> add_integer(None)
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
+
+Trying to add a letter and a number
+>>> add_integer('d', 2)
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
+
+Trying to add two letters
+>>> add_integer('d', 'e')
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
+
+Trying to add a tuple
+>>> add_integer((2, 2))
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
+
+Trying to add a number and a list
+>>> add_integer(234, [])
+Traceback (most recent call last):
+    ...
+TypeError: b must be an integer
+
+Trying to pass only one string
+>>> add_integer("book")
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
+
+Overflow Test 1:
+
+>>> add_integer(float('inf'), 0)
+Traceback (most recent call last):
+    ...
+OverflowError: cannot convert float infinity to integer
+
+Overflow Test 2:
+
+>>> add_integer(float('inf'), float('-inf'))
+Traceback (most recent call last):
+    ...
+OverflowError: cannot convert float infinity to integer
+
+NaN numbers Test 1:
+
+>>> add_integer(3, float('nan'))
+Traceback (most recent call last):
+    ...
+ValueError: cannot convert float NaN to integer
+
+NaN numbers Test 2:
+>>> add_integer(float('nan'))
+Traceback (most recent call last):
+    ...
+ValueError: cannot convert float NaN to integer
