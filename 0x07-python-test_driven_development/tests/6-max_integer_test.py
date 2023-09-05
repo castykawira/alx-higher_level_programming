@@ -50,8 +50,8 @@ class TestMaxInteger(unittest.TestCase):
 
     def test_list_of_strings(self):
         """Test when the input list contains strings"""
-        result = ["apple", "date", "fig", "banana"]
-        self.assertEqual(max_integer(result), "banana")
+        result = ["apple", "banana", "cherry", "date"]
+        self.assertEqual(max_integer(result), "date")
 
     def test_empty_string(self):
         """Test when the input list contains empty strings"""
