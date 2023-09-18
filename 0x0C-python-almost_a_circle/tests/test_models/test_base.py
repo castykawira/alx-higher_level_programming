@@ -6,73 +6,73 @@ import json
 import inspect
 
 '''
-    Test cases for the base class
+    Creating test cases for the base module
 '''
 
 
 class test_base(unittest.TestCase):
     '''
-        Testing cases for the Base class
+        Testing base
     '''
     def test_id_none(self):
         '''
-            Test creating a Base instance with id set to None
+            Sending no id
         '''
         b = Base()
         self.assertEqual(1, b.id)
 
     def test_id(self):
         '''
-            Test creating a Base instance with a valid id
+            Sending a valid id
         '''
         b = Base(50)
         self.assertEqual(50, b.id)
 
     def test_id_zero(self):
         '''
-            Test creating a Base instance with id set to 0
+            Sending an id 0
         '''
         b = Base(0)
         self.assertEqual(0, b.id)
 
     def test_id_negative(self):
         '''
-            Test creating a Base instance with a negative id
+            Sending a negative id
         '''
         b = Base(-20)
         self.assertEqual(-20, b.id)
 
     def test_id_string(self):
         '''
-            Test creating a Base instance with a string id
+            Sending an id that is not an int
         '''
         b = Base("Betty")
         self.assertEqual("Betty", b.id)
 
     def test_id_list(self):
         '''
-            Test creating a Base instance with a list id
+            Sending an id that is not an int
         '''
         b = Base([1, 2, 3])
         self.assertEqual([1, 2, 3], b.id)
 
     def test_id_dict(self):
         '''
-            Test creating a Base instance with a dictionary id
+            Sending an id that is not an int
         '''
         b = Base({"id": 109})
         self.assertEqual({"id": 109}, b.id)
 
     def test_id_tuple(self):
         '''
-            Test creating a Base instance with a tuple id
+            Sending an id that is not an int
         '''
         b = Base((8,))
         self.assertEqual((8,), b.id)
 
     def test_to_json_type(self):
         '''
-            Test the type of the returned JSON string
+            Testing the json string
         '''
         sq = Square(1)
         json_dict = sq.to_dictionary()
@@ -81,7 +81,7 @@ class test_base(unittest.TestCase):
 
     def test_to_json_value(self):
         '''
-            Test the value of the returned JSON string
+            Testing the json string
         '''
         sq = Square(1, 0, 0, 609)
         json_dict = sq.to_dictionary()
@@ -91,7 +91,7 @@ class test_base(unittest.TestCase):
 
     def test_to_json_None(self):
         '''
-            Test to_json_string with None as input
+            Testing the json string
         '''
         sq = Square(1, 0, 0, 609)
         json_dict = sq.to_dictionary()
@@ -100,7 +100,7 @@ class test_base(unittest.TestCase):
 
     def test_to_json_Empty(self):
         '''
-            Test to_json_string with an empty list as input
+            Testing the json string
         '''
         sq = Square(1, 0, 0, 609)
         json_dict = sq.to_dictionary()
@@ -110,31 +110,31 @@ class test_base(unittest.TestCase):
 
 class TestSquare(unittest.TestCase):
     """
-    Test cases for the Square class
+    class for testing Base class' methods
     """
 
     @classmethod
     def setUpClass(cls):
         """
-        Set up class-level resources for the test suite
+        Set up class method for the doc tests
         """
         cls.setup = inspect.getmembers(Base, inspect.isfunction)
 
     def test_module_docstring(self):
         """
-        Test if the module has a docstring
+        Tests if module docstring documentation exist
         """
         self.assertTrue(len(Base.__doc__) >= 1)
 
     def test_class_docstring(self):
         """
-        Test if the Square class has a docstring
+        Tests if class docstring documentation exist
         """
         self.assertTrue(len(Base.__doc__) >= 1)
 
     def test_func_docstrings(self):
         """
-        Test if methods of the Square class have docstrings
+        Tests if methods docstring documntation exist
         """
         for func in self.setup:
             self.assertTrue(len(func[1].__doc__) >= 1)

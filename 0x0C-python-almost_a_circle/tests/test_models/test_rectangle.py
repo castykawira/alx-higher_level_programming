@@ -11,42 +11,43 @@ from io import StringIO
 import sys
 
 '''
-    Unittests for the Rectangle class
+    Runs test cases for the Rectangle module
 '''
 
 
 class test_rectangle(unittest.TestCase):
     '''
-        Test cases for the Rectangle class
+        Testing rectangle
     '''
 
     def setUp(self):
         '''
-            Set up method for initializing common test data
+            Initializing instance with width and height
+            parameters
         '''
         self.r = Rectangle(5, 10)
 
     def tearDown(self):
         '''
-            Tear down method to clean up after each test case
+            Deleting created instance
         '''
         del self.r
 
     def test_width(self):
         '''
-            Test the width attribute
+            Testing the Rectangle width getter
         '''
         self.assertEqual(5, self.r.width)
 
     def test_height(self):
         '''
-            Test the height attribute
+            Testing the Rectangle height getter
         '''
         self.assertEqual(10, self.r.height)
 
     def test_x(self):
         '''
-            Test the x attribute
+            Testing Rectangle x getter and setter
         '''
 
         self.r.x = 54
@@ -55,7 +56,7 @@ class test_rectangle(unittest.TestCase):
 
     def test_y(self):
         '''
-            Test the y attribute
+            Testing Rectangle y getter and setter
         '''
 
         self.r.y = 45
@@ -64,56 +65,56 @@ class test_rectangle(unittest.TestCase):
 
     def test_arectangle_id(self):
         '''
-            Test the id attribute of a Rectangle instance
+            Test the id for Rectangle
         '''
         rect = Rectangle(1, 3, 0, 0, 199)
         self.assertEqual(199, rect.id)
 
     def test_width_string(self):
         '''
-            Test setting width with a string value
+            Testing for other than int
         '''
         with self.assertRaises(TypeError):
             rect = Rectangle("1", 5)
 
     def test_width_bool(self):
         '''
-            Test setting width with a boolean value
+            Testing for other than int
         '''
         with self.assertRaises(TypeError):
             rect = Rectangle(True, 5)
 
     def test_width_list(self):
         '''
-           Test setting width with a list
+            Testing for other than int
         '''
         with self.assertRaises(TypeError):
             rect = Rectangle([10, 6], 5)
 
     def test_height_string(self):
         '''
-            Test setting height with a string
+            Testing for other than int
         '''
         with self.assertRaises(TypeError):
             rect = Rectangle(1, "5")
 
     def test_height_bool(self):
         '''
-            Test setting height with a boolean
+            Testing for other than int
         '''
         with self.assertRaises(TypeError):
             rect = Rectangle(1, True)
 
     def test_height_list(self):
         '''
-            Test setting height with a list
+            Testing for other than int
         '''
         with self.assertRaises(TypeError):
             rect = Rectangle(5, [10, 6])
 
     def test_x_string(self):
         '''
-            Test setting x with a string
+            Testing for other than int
         '''
         with self.assertRaises(TypeError):
             rect = Rectangle(1, 5, "46")
