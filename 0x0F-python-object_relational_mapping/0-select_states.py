@@ -4,14 +4,15 @@ This script lists all states from the specified database.
 """
 
 import MySQLdb
-import sys 
+import sys
 
 if __name__ == '__main__':
     """
     Connects to the MySQL server and lists states from the specified database
     """
     db_connect = MySQLdb.connect(
-        host="localhost", user=argv[1], port=3306, passwd=argv[2], db=argv[3])
+            host="localhost", user=argv[1], port=3306,
+            passwd=argv[2], db=argv[3])
 
     db_cursor = db_connect.cursor()
 
