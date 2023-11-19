@@ -1,27 +1,20 @@
 #!/usr/bin/python3
-"""
-This script lists all states from the specified database.
-"""
-
-import MySQLdb
-import sys
+"""This script lists all states from the specified database."""
 
 if __name__ == '__main__':
-    """
-    Connects to the MySQL server and lists states from the specified database
-    """
-    db_connect = MySQLdb.connect(
-            host="localhost", user=argv[1], port=3306,
-            passwd=argv[2], db=argv[3])
+    import sys
+    import MySQLdb
 
-    db_cursor = db_connect.cursor()
+    if len(sys.argv) != 4:
+        sys.exit('Use: 0-select_states.py <mysql username> <mysql password>'
+                 ' <database name>')
 
-    db_cursor.execute("SELECT * FROM states")
-
-    rows_selected = db_cursor.fetchall()
-
-    for row in rows_selected:
+    conn = MySQLdb.connect(host='localhost', port=3306, user=sys.argv[1],
+                           passwd=sys.argv[2], db=sys.argv[3], charset='utf8')
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM states ORDER BY id ASC")
+    query_rows = cur.fetchall()
+    for row in query_rows:
         print(row)
-
-        db_cursor.close
-        db_connect.close
+    cur.close()
+    conn.close()
